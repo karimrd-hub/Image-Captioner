@@ -122,7 +122,7 @@ class PhotoCaptionApp:
             return None
 
     def render_header(self):
-        st.title("🖼️ AI Photo Captioning")
+        st.title("🖼️ Designer AI eye")
         st.markdown("""
         Upload an image and let AI generate a descriptive caption for you.
         Choose your preferred AI model and get instant results!
