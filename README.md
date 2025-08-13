@@ -10,6 +10,21 @@
 
 ---
 
+In task1/ you will find :  
+
+gucci_under_1000 : 20 designs from gucci with price under 1000 euro
+men_clothing : 500 images of men clothing
+women_clothing : 500 images of men clothing
+women_clothing_subset : a subset of 20 images of women clothing on which i tested the caption generation and saved the output to "example_of_20_captions.csv"
+women_gucci_under_1000
+women_saint_laurent : 50 designs bn=y saint laurent
+women_shoes : 100 shoes designs
+claude_3.5_sonnet.ipynb : the code that I used to invoke claude-3.5-sonnet-v1 on bedrock
+example_of_20_captions.csv
+mytheresa_scraper.ipynb : the codes I used to scrape mytheresa
+
+---
+
 ## ⚙️ Implementing the App
 
 The app is built using **Streamlit** for the frontend and **Flask** for the backend.

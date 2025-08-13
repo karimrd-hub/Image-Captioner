@@ -22,7 +22,7 @@ def generate_caption():
         # Call the captioning utility
         caption = caption_image(image_b64, model_key)
 
-        
+        # returns the output in json format
         return jsonify({
             "success": True,
             "caption": caption,
