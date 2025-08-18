@@ -3,17 +3,20 @@ import json
 from botocore.exceptions import ClientError
 import os 
 import sys 
-
+from dotenv import load_dotenv
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+
 from setup_aws_session import setup_aws_session
 session = setup_aws_session()
 
 
 client = session.client("bedrock-runtime")
 
+load_dotenv()
+claude_model_id = os.getenv("CLAUDE_MODEL_ID")
 # Model mapping (can be extended later)
 MODEL_IDS = {
-    "claude-3.5-sonnet-v1": "anthropic.claude-3-5-sonnet-20240620-v1:0"
+    "claude-3.5-sonnet-v1": claude_model_id
 }
 
 # Prompt for high-end fashion description
