@@ -50,7 +50,6 @@ paste the name of the created bucket in fronted/stremlit_app.py -> bucket_name
 python -m venv .venv # to create a virtual environment
 ./.venv/Scripts/Activate.ps1
 pip install -r requirements.txt
-cd week1
 streamlit run frontend/streamlit_app.py
 ```
 
