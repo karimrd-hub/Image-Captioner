@@ -1,11 +1,15 @@
-# utils/image_captionner.py
-
 import boto3
 import json
 from botocore.exceptions import ClientError
+import os 
+import sys 
 
-# AWS Bedrock client (region must match your model's availability)
-client = boto3.client("bedrock-runtime", region_name="us-east-1")
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+from setup_aws_session import setup_aws_session
+session = setup_aws_session()
+
+
+client = session.client("bedrock-runtime")
 
 # Model mapping (can be extended later)
 MODEL_IDS = {

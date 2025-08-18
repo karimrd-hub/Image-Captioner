@@ -1,5 +1,3 @@
-# frontend/streamlit_app.py
-
 import streamlit as st
 import requests
 from PIL import Image
@@ -13,9 +11,19 @@ import os
 import sys
 import time
 import uuid
-
-import boto3
 from botocore.exceptions import BotoCoreError, NoCredentialsError
+
+from dotenv import load_dotenv
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from setup_aws_session import setup_aws_session
+
+session = setup_aws_session()
+
+load_dotenv()
+s3_bucket_name = os.getenv("S3_BUCKET_NAME")
+
+
 
 def is_port_in_use(port):
     """Check if a port is already in use."""
@@ -51,7 +59,7 @@ def upload_image_to_s3(image: Image.Image, filename: str, bucket_name: str) -> b
         image.save(buffer, format="JPEG")
         buffer.seek(0)
 
-        s3 = boto3.client("s3")
+        s3 = session.client("s3")
         s3.upload_fileobj(buffer, bucket_name, filename, ExtraArgs={"ContentType": "image/jpeg"})
 
         return True
@@ -152,7 +160,7 @@ class PhotoCaptionApp:
             if image:
                 # Upload to S3
                 filename = f"user_uploads/{uuid.uuid4().hex}.jpg"
-                bucket_name = "karim-s3-bucket-internship-week1-image-captioner"
+                bucket_name = s3_bucket_name
 
                 if upload_image_to_s3(image, filename, bucket_name):
                     st.success(f"Image uploaded to S3 as `{filename}`")
