@@ -44,6 +44,9 @@ The app is built using **Streamlit** for the frontend and **Flask** for the back
 ## 🚀 How to Use the App
 
 ```bash
+python -m venv .venv # to create a virtual environment
+./.venv/Scripts/Activate.ps1
+pip install -r requirements
 cd week1
 streamlit run frontend/streamlit_app.py
 ```
