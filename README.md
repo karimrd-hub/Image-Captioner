@@ -43,13 +43,30 @@ The app is built using **Streamlit** for the frontend and **Flask** for the back
 
 ## 🚀 How to Use the App
 
-Go to the aws console -> search for S3 -> create a S3 bucket,
-paste the name of the created bucket in fronted/stremlit_app.py -> bucket_name
+1. **Create an S3 Bucket**
+
+   * Go to the AWS console → search for **S3** → create an S3 bucket.
+   * Paste the name of the created bucket in `frontend/streamlit_app.py` → `bucket_name`.
+
+2. **Setup the Virtual Environment and Install Dependencies**
 
 ```bash
-python -m venv .venv # to create a virtual environment
+# Create a virtual environment
+python -m venv .venv
+
+# Activate the virtual environment (PowerShell)
 ./.venv/Scripts/Activate.ps1
+
+# Install required packages
 pip install -r requirements.txt
-streamlit run frontend/streamlit_app.py
 ```
 
+3. **Configure AWS Credentials**
+
+   * Fill your AWS credentials in a `.env` file.
+
+4. **Run the App**
+
+```bash
+streamlit run frontend/streamlit_app.py
+```
