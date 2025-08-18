@@ -43,7 +43,7 @@ The app is built using **Streamlit** for the frontend and **Flask** for the back
 
 ## 🚀 How to Use the App
 
-Go to the aws console -> search for S3 -> create a S3 bucket
+Go to the aws console -> search for S3 -> create a S3 bucket,
 paste the name of the created bucket in fronted/stremlit_app.py -> bucket_name
 
 ```bash
